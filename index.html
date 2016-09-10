@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RIOT | StackAcademy.tv </title>
+    <link rel="stylesheet" href="/style/stack.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="/js/riot.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="header">
+        <a style="color:#222;text-decoration:none;" href="/">Blog</a>
+        <a class="u-pull-right" href="/admin">Admin</a>
+      </h1>
+
+      <!-- View Mount -->
+      <div id="view"></div>
+
+      <!-- Riot Tags -->
+      <script src="/js/posts.js"></script>
+      <script src="/js/router.js"></script>
+      <script src="/js/tags.js"></script>
+      <script>riot.mount('*');</script>
+
+    </div>
+  </body>
+</html>
