@@ -18,6 +18,11 @@ riot.route('/admin', function(){
   blog_set_view('admin');
 });
 
+// Chart
+riot.route('/chart', function(){
+  blog_set_view('chart');
+});
+
 // New Post
 riot.route('/new', function(){
   blog_set_view('editor');
