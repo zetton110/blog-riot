@@ -2,17 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>RIOT | StackAcademy.tv </title>
+    <title>Riot Dashboard</title>
     <link rel="stylesheet" href="./style/stack.css">
     <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="./style/export.css" media="all">
+    <link rel="stylesheet" href="./style/jquery.gridster.min.css">
     <script src="./js/riot.min.js"></script>
   </head>
   <body>
     <div class="container">
       <h1 id="header">
-        <a style="color:#222;text-decoration:none;" href="/">Blog</a>
+        <a style="color:#222;text-decoration:none;" href="/">Dashboard</a>
         <span class="u-pull-right">
+          <a class="button" href="/blog-roll">Blog</a>
           <a class="button" href="/chart">Chart</a>
           <a class="button" href="/admin">Admin</a>
         </span>
@@ -21,20 +22,24 @@
       <!-- View Mount -->
       <div id="view"></div>
     </div>
-    
+
     <!-- Riot Tags -->
-    <script src="./js/posts.js"></script>
     <script src="./js/router.js"></script>
     <script src="./js/tags.js"></script>
+    <script src="./js/posts.js"></script>
     <script>riot.mount('*');</script>
 
-    <!-- Chart -->
+    <!-- JQuery -->
+    <script src="./js/jquery-3.1.0.min.js"></script>
+
+    <!-- gridster -->
+    <script src="./js/jquery.gridster.min.js"></script>
+
+    <!-- anCharts -->
     <script src="./js/amcharts.js"></script>
     <script src="./js/serial.js"></script>
     <script src="./js/export.min.js"></script>
     <script src="./js/light.js"></script>
-
-
 
   </body>
 </html>

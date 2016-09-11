@@ -4,7 +4,7 @@ riot.tag2('admin', '<table width="100%" class="u-full-width"> <thead> <tr> <th>T
 riot.tag2('blog-roll', '<div if="{posts.length === 0}"> You don\'t have any posts.<br> <a href="/new" class="button button-primary">Create your first post now</a> </div> <post each="{posts}" post="{url}" excerpt="true"></post>', '', '', function(opts) {
 });
 
-riot.tag2('chart', '<div id="chartdiv"></div>', 'chart #chartdiv,[riot-tag="chart"] #chartdiv,[data-is="chart"] #chartdiv{ width: 100%; height: 500px; }', '', function(opts) {
+riot.tag2('chart', '<div id="chartdiv"></div>', 'chart #chartdiv,[riot-tag="chart"] #chartdiv,[data-is="chart"] #chartdiv{ width: 100%; height: 100%; }', '', function(opts) {
     this.on('mount',function(){
 
     var chart = AmCharts.makeChart( "chartdiv", {
@@ -89,6 +89,16 @@ riot.tag2('chart', '<div id="chartdiv"></div>', 'chart #chartdiv,[riot-tag="char
     }
 } );
 
+    });
+});
+riot.tag2('dashboard', '<div class="gridster"> <ul> <li data-row="1" data-col="1" data-sizex="2" data-sizey="2" style="background-color:red"></li> <li data-row="2" data-col="2" data-sizex="2" data-sizey="2" style="background-color:pink"><chart style="height:100%;"></chart></li> <li data-row="3" data-col="1" data-sizex="2" data-sizey="1" style="background-color:green"></li> <li data-row="1" data-col="2" data-sizex="2" data-sizey="2" style="background-color:purple"></li> <li data-row="1" data-col="1" data-sizex="2" data-sizey="3" style="background-color:yellow"></li> <li data-row="2" data-col="4" data-sizex="2" data-sizey="2" style="background-color:orange"></li> <li data-row="2" data-col="6" data-sizex="2" data-sizey="2" style="background-color:skyblue"></li> <li data-row="3" data-col="1" data-sizex="2" data-sizey="1" style="background-color:blue"></li> </ul> </div>', 'dashboard ul li,[riot-tag="dashboard"] ul li,[data-is="dashboard"] ul li{ list-style:none; }', '', function(opts) {
+    this.on('mount',function(){
+        $(function(){
+            $(".gridster ul").gridster({
+                widget_margins: [10, 10],
+                widget_base_dimensions: [140, 140]
+            });
+        });
     });
 });
 riot.tag2('editor', '<form onsubmit="{add_post}"> <input class="u-full-width title" type="text" name="post_title" placeholder="Post Title" value="{post.title}"> <div class="row"> <input class="six columns" type="text" name="post_author" placeholder="Author" value="{post.author}"> <input class="six columns" type="text" name="post_category" placeholder="Category" value="{post.category}"> </div> <textarea name="post_content" class="u-full-width" placeholder="Post Content">{post.content}</textarea> <div class="row"> <button if="{post}" onclick="{delete_post}">Delete Post</button> <input type="submit" class="button button-primary u-pull-right" value="{opts.post ? \'Update\' : \'Publish\'}"> </div> </form>', 'editor .title,[riot-tag="editor"] .title,[data-is="editor"] .title{ height: 75px; font-size: 36px; } editor textarea,[riot-tag="editor"] textarea,[data-is="editor"] textarea{ height: 300px; max-width: 100%; min-width: 100%; }', '', function(opts) {

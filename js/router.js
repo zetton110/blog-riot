@@ -10,12 +10,17 @@ function blog_set_view(view, opts) {
 
 // Home
 riot.route('/', function(){
-  blog_set_view('blog-roll');
+  blog_set_view('dashboard');
 });
 
 // Admin
 riot.route('/admin', function(){
   blog_set_view('admin');
+});
+
+// Dashboard
+riot.route('/blog', function(){
+  blog_set_view('blog-roll');
 });
 
 // Chart
